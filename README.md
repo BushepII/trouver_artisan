@@ -2,6 +2,14 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.9.
 
+
+## Dependencies
+
+```
+npm install tailwindcss @tailwindcss/postcss postcss --force
+npm install normalize-text --save
+```
+
 ## Development server
 
 To start a local development server, run:
