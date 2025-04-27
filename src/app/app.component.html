@@ -1,3 +1,4 @@
-<app-header class="xl:max-w-3/5 mx-auto"></app-header>
-<main class="h-screen xl:max-w-3/5 mx-auto"></main>
+<app-header class="xl:max-w-3/5 mx-auto" (sectionToggled)="onSectionToggled($event)"></app-header>
+<main class="xl:max-w-3/5 mx-auto" [ngClass]="{ 'my-24': !menuOpen && !searchOpen, 'my-80': menuOpen, 'my-38': searchOpen }">
+</main>
 <app-footer></app-footer>

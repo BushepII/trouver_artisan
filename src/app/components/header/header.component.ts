@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-header',
   imports: [CommonModule, FormsModule],
@@ -9,6 +8,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  @Output() sectionToggled = new EventEmitter<{section: 'menu' | 'search', open: boolean}>();
+
   isMenuOpen: boolean = false;
   isSearchOpen: boolean = false;
 
@@ -18,9 +19,11 @@ export class HeaderComponent {
     if (section === 'menu'){
       this.isMenuOpen = !this.isMenuOpen;
       this.isSearchOpen = false;
+      this.sectionToggled.emit({ section: 'menu', open: this.isMenuOpen });
     } else if (section === 'search'){
       this.isSearchOpen = !this.isSearchOpen;
       this.isMenuOpen = false;
+      this.sectionToggled.emit({ section: 'search', open: this.isSearchOpen });
     }
   }
 }
