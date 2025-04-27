@@ -1,15 +1,31 @@
-<a href="#" class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20">
+<a [routerLink]="['/artisan', id]" routerLinkActive="router-link-active" class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20 hover:cursor-pointer h-full">
     <section class="space-y-6">
-        <h3 class="p-4 text-xl">{{ name }}</h3>
-        <div class="flex justify-evenly">
-            <ng-container *ngFor="let star of [0,1,2,3,4]; let i = index">
-                <svg *ngIf="i < note" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-auto h-auto text-yellow-400">
-                  <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
-                </svg>
-                <svg *ngIf="i >= note" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-auto h-auto text-gray-300">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.716 5.282a1 1 0 00.95.69h5.528c.969 0 1.371 1.24.588 1.81l-4.473 3.252a1 1 0 00-.364 1.118l1.716 5.282c.3.921-.755 1.688-1.538 1.118l-4.473-3.252a1 1 0 00-1.175 0l-4.473 3.252c-.783.57-1.838-.197-1.538-1.118l1.716-5.282a1 1 0 00-.364-1.118L2.49 10.709c-.783-.57-.38-1.81.588-1.81h5.528a1 1 0 00.95-.69l1.716-5.282z"/>
-                </svg>
-            </ng-container>
+        <h3 class="py-4 text-xl">{{ name }}</h3>
+        <div class="flex justify-start">
+          <ng-container *ngFor="let star of [0,1,2,3,4]; let i = index">
+
+            <!-- FULL star -->
+            <svg *ngIf="getStarType(i) === 'full'" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 text-[#0074c7]">
+              <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
+            </svg>
+        
+            <!-- HALF star -->
+            <svg *ngIf="getStarType(i) === 'half'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-[#0074c7]">
+              <defs>
+                <linearGradient id="halfGrad">
+                  <stop offset="50%" stop-color="currentColor" />
+                  <stop offset="50%" stop-color="transparent" />
+                </linearGradient>
+              </defs>
+              <path fill="url(#halfGrad)" stroke="currentColor" stroke-width="1.5" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
+            </svg>
+        
+            <!-- EMPTY star -->
+            <svg *ngIf="getStarType(i) === 'empty'" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-6 h-6 text-gray-300">
+              <path stroke-width="2" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
+            </svg>
+        
+          </ng-container>
         </div>
         <p class="text-lg py-4">{{ specialty }}</p>
 

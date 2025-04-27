@@ -12,10 +12,12 @@ import { ContactComponent } from './components/contact/contact.component';
 import { CookiespolicyComponent } from './components/cookiespolicy/cookiespolicy.component';
 import { HandlecookiesComponent } from './components/handlecookies/handlecookies.component';
 import { ErrorpageComponent } from './components/errorpage/errorpage.component';
+import { PageArtisanComponent } from './components/page-artisan/page-artisan.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'search', component: SearchComponent},
+    { path: 'artisan/:id', component: PageArtisanComponent},
     { path: 'legal-mentions', component: LegalmentionsComponent},
     { path: 'personnal-datas', component: PersonnaldatasComponent},
     { path: 'accessibility', component: AccessibilityComponent},

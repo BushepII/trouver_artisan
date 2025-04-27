@@ -7,6 +7,7 @@ export interface Instruction {
   step: string;
   instruction: string;
   picture: string;
+  alt: string;
 }
 
 @Injectable({
