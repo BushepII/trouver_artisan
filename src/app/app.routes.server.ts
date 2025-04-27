@@ -14,6 +14,7 @@ export const serverRoutes: ServerRoute[] = [
       return ids.map(id => ({ id })); // Transforms IDs into an array of objects for prerendering
     }
   },
+  
   {
     path: '**',
     renderMode: RenderMode.Prerender
