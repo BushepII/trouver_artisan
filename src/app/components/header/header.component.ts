@@ -1,6 +1,8 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-header',
   imports: [CommonModule, FormsModule],
@@ -15,6 +17,8 @@ export class HeaderComponent {
 
   searchQuery: string = '';
 
+  constructor(private router: Router) {}
+
   handleSection(section: 'menu' |'search'){
     if (section === 'menu'){
       this.isMenuOpen = !this.isMenuOpen;
@@ -25,5 +29,17 @@ export class HeaderComponent {
       this.isMenuOpen = false;
       this.sectionToggled.emit({ section: 'search', open: this.isSearchOpen });
     }
+  }
+
+  onSearch() {
+    const trimmedQuerry = this.searchQuery.trim();
+    if (trimmedQuerry) {
+      this.router.navigate(['/search'], {queryParams: { query: trimmedQuerry } });
+      this.searchQuery = '';
+    }
+  }
+
+  navigateToCategory(category: string) {
+    this.router.navigate(['/search'], { queryParams: { query: category } });
   }
 }

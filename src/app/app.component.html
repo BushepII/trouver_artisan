@@ -1,5 +1,5 @@
 <app-header class="xl:max-w-3/5 mx-auto" (sectionToggled)="onSectionToggled($event)"></app-header>
-<main class="" [ngClass]="{'my-40': !menuOpen && !searchOpen, 'my-80': menuOpen, 'my-38': searchOpen }">
-    <app-home></app-home>
+<main [ngClass]="{'my-40': !menuOpen && !searchOpen, 'my-80': menuOpen, 'my-38': searchOpen }">
+    <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
