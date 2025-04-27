@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /legal-mentions
+Disallow: /personnal-datas
+Disallow: /accessibility
+Disallow: /press
+Disallow: /trade
+Disallow: /get-to-the-region
+Disallow: /contact
+Disallow: /cookies-policy
+Disallow: /handle-cookies

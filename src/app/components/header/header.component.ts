@@ -1,11 +1,11 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-header',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
@@ -41,5 +41,13 @@ export class HeaderComponent {
 
   navigateToCategory(category: string) {
     this.router.navigate(['/search'], { queryParams: { query: category } });
+  }
+
+  navigateHome() {
+    this.router.navigate(['/']).then(() => {
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   }
 }
