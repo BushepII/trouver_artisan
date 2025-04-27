@@ -17,7 +17,12 @@ import { PageArtisanComponent } from './components/page-artisan/page-artisan.com
 export const routes: Routes = [
     { path: '', component: HomeComponent},
     { path: 'search', component: SearchComponent},
-    { path: 'artisan/:id', component: PageArtisanComponent},
+    { path: 'artisan/:id',
+        loadComponent: () => import('./components/page-artisan/page-artisan.component').then(m => m.PageArtisanComponent),
+        data: {
+          renderMode: 'server'
+        }
+    },
     { path: 'legal-mentions', component: LegalmentionsComponent},
     { path: 'personnal-datas', component: PersonnaldatasComponent},
     { path: 'accessibility', component: AccessibilityComponent},
