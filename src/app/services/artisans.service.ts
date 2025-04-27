@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map } from 'rxjs';
-import { NormalizeTextPipe } from '../pipes/normalize-text.pipe';
 
 export interface Artisan {
   id: number;
@@ -23,24 +22,33 @@ export class ArtisanService {
 
   private jsonUrl = '../assets/data/datas.json';
 
-  constructor(private http: HttpClient, private normalizePipe: NormalizeTextPipe) {}
+  constructor(private http: HttpClient) {}
 
   getArtisans(): Observable<Artisan[]> {
     return this.http.get<Artisan[]>(this.jsonUrl);
   }
 
   searchArtisans(query: string): Observable<Artisan[]> {
-    const normalizedQuery = this.normalizePipe.transform(query);
+    const normalizedQuery = this.normalizeText(query);
 
     return this.getArtisans().pipe(
       map(artisans =>
         artisans.filter(artisan =>
-          this.normalizePipe.transform(artisan.name).includes(normalizedQuery) ||
-          this.normalizePipe.transform(artisan.specialty).includes(normalizedQuery) ||
-          this.normalizePipe.transform(artisan.category).includes(normalizedQuery) ||
-          this.normalizePipe.transform(artisan.location).includes(normalizedQuery)
+          this.normalizeText(artisan.name).includes(normalizedQuery) ||
+          this.normalizeText(artisan.specialty).includes(normalizedQuery) ||
+          this.normalizeText(artisan.category).includes(normalizedQuery) ||
+          this.normalizeText(artisan.location).includes(normalizedQuery)
         )
       )
     );
+  }
+
+  private normalizeText(text: string): string {
+    return text
+      .toLowerCase()
+      .normalize('NFD')  // Remove accents
+      .replace(/[\u0300-\u036f]/g, '')  // Remove diacritics
+      .replace(/\s+/g, ' ') // Normalize multiple spaces
+      .trim();
   }
 }

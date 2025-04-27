@@ -2,25 +2,27 @@
 	{
 		"id": "1",
 		"step": "Choisir la catégorie d'artisanat dans le menu",
-		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
-		"picture": "/assets/images/Logo.png"
+		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie. Les catégories sont : Bâtiment, Services, Fabrication, Alimentation. Il est tout à fait possible de faire une recherche en utilisant la barre de recherche puis appuyer sur entrée ou l'icone de loupe. Les éléments mentionnés sont encadrés en rouge sur l'image jointe.",
+		"picture": "/assets/images/instruction-1.png",
+		"alt": "instruction 1, utiliser le menu ou la barre de recherche."
 	},
     {
 		"id": "2",
 		"step": "Choisir un artisan",
-		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
-		"picture": "/assets/images/Logo.png"
+		"instruction": "Une liste des artisans basée sur la recheche s'affiche. Sélectionnez l'artisan qui vous intéresse en cliquant sur sa carte. Les informations complètes sur l'artisan s'afficheront alors.",
+		"picture": "/assets/images/instruction-2.png",
+		"alt": "instruction 2, sélectionner une carte d'artisan."
 	},
     {
 		"id": "3",
 		"step": "Le contacter via le formulaire de contact",
-		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
-		"picture": "/assets/images/Logo.png"
+		"instruction": "Vous pouvez contacter l'artisan en remplissant le formulaire de contact située en fin de page. Il suffit de renseigner son nom, prénom, l'objet du message, le message et appuyer sur le bouton envoyer",
+		"picture": "/assets/images/instruction-3.png",
+		"alt": "instruction 3, remplir le formulaire pour contacter l'artisan."
 	},
     {
 		"id": "4",
 		"step": "Une réponse sera apportée sous 48h",
-		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
-		"picture": "/assets/images/Logo.png"
+		"instruction": "Votre mail sera envoyé dans les plus bref délais. N'hésitez pas à nous contacter ou réessayer en cas de non respect des délais de 48h."
 	}
 ]
