@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@import 'tailwind/base';
+@import 'tailwind/components';
+@import 'tailwind/utilities';
 
 @font-face {
     font-family: "Graphik";

@@ -7,6 +7,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 
 ```
 npm install tailwindcss @tailwindcss/postcss postcss --force
+npm install -D tailwindcss postcss autoprefixer
 npm install normalize-text --save
 npm install @emailjs/browser
 ```
