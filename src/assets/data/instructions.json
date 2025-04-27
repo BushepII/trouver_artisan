@@ -1,0 +1,26 @@
+[
+	{
+		"id": "1",
+		"step": "Choisir la catégorie d'artisanat dans le menu",
+		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
+		"picture": "/assets/images/Logo.png"
+	},
+    {
+		"id": "2",
+		"step": "Choisir un artisan",
+		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
+		"picture": "/assets/images/Logo.png"
+	},
+    {
+		"id": "3",
+		"step": "Le contacter via le formulaire de contact",
+		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
+		"picture": "/assets/images/Logo.png"
+	},
+    {
+		"id": "4",
+		"step": "Une réponse sera apportée sous 48h",
+		"instruction": "Ouvrir le menu des catégories en cliquant sur le menu burger, l'icone avec 3 lignes horizontales en haut à droite de l'écran. Cliquer sur l'une des catégories pour obtenir la liste des artisans disponibles dans cette catégorie.",
+		"picture": "/assets/images/Logo.png"
+	}
+]

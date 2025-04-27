@@ -1,0 +1,8 @@
+<div *ngFor="let instruction of instructions" class="flex flex-col justify-between shadow-md rounded-lg p-6 mt-24 items-center">
+    <p class="text-5xl font-bold text-white bg-blue-500 w-16 h-16 flex items-center justify-center rounded-full mb-4">{{ instruction.id }}</p>
+    <section class="flex flex-col items-start w-full">
+        <h3 class="font-bold p-4">{{ instruction.step }}</h3>
+        <p class="p-4">{{ instruction.instruction }}</p>
+    </section>
+    <img [src]="instruction.picture" alt="" class="p-4 w-full max-w-lg h-auto">
+</div>
