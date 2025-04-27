@@ -1,1 +1,17 @@
 @import "tailwindcss";
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Regular-Trial.woff") format('woff');
+}
+
+@font-face {
+    font-family: "Graphik";
+    src: url("/assets/fonts/Graphik-Bold-Trial.woff") format('woff');
+    font-weight: bold;
+}
+
+body {
+    background-color: #f1f8fc;
+    font-family: "Graphik", sans-serif;
+}
