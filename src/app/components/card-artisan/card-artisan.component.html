@@ -1,6 +1,6 @@
-<div class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center max-w-6xl mx-auto w-10/12 sm:w-9/12 md:w-4/5 lg:w-3/5 xl:w-2/5">
+<a href="#" class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20">
     <section class="space-y-6">
-        <h3 class="font-bold p-4 text-xl">{{ name }}</h3>
+        <h3 class="p-4 text-xl">{{ name }}</h3>
         <div class="flex justify-evenly">
             <ng-container *ngFor="let star of [0,1,2,3,4]; let i = index">
                 <svg *ngIf="i < note" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-auto h-auto text-yellow-400">
@@ -12,6 +12,10 @@
             </ng-container>
         </div>
         <p class="text-lg py-4">{{ specialty }}</p>
-        <p class="text-lg py-4">{{ location }}</p>
+
+        <div class="flex items-center">
+          <img src="/assets/images/localisation.png" class="w-full max-w-8 h-8" alt="icone de localisation">
+          <p class="text-lg py-4">{{ location }}</p>
+        </div>
     </section>
-</div>
+</a>
