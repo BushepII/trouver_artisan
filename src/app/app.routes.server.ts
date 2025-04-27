@@ -5,7 +5,7 @@ import { firstValueFrom } from 'rxjs';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: 'artisan:id',
+    path: 'artisan/:id',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       const dataService = inject(ArtisanService);
