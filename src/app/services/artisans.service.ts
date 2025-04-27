@@ -51,4 +51,10 @@ export class ArtisanService {
       .replace(/\s+/g, ' ') // Normalize multiple spaces
       .trim();
   }
+
+  getIds(): Observable<string[]> {
+    return this.getArtisans().pipe(
+      map(artisans => artisans.map(artisan => artisan.id.toString()))
+    );
+  }
 }
