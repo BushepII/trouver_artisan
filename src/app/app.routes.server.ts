@@ -5,7 +5,7 @@ import { firstValueFrom } from 'rxjs';
 
 export const serverRoutes: ServerRoute[] = [
   {
-    path: 'artisan:id',
+    path: 'artisan/:id',
     renderMode: RenderMode.Prerender,
     async getPrerenderParams() {
       const dataService = inject(ArtisanService);
@@ -14,6 +14,7 @@ export const serverRoutes: ServerRoute[] = [
       return ids.map(id => ({ id })); // Transforms IDs into an array of objects for prerendering
     }
   },
+  
   {
     path: '**',
     renderMode: RenderMode.Prerender
