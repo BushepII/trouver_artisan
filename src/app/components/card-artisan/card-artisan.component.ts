@@ -1,10 +1,9 @@
 import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-card-artisan',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './card-artisan.component.html',
   styleUrl: './card-artisan.component.scss',
   encapsulation: ViewEncapsulation.None,
@@ -20,7 +19,7 @@ export class CardArtisanComponent {
   @Input() website!: string;
   @Input() category!: string;
   @Input() top!: boolean;
-  
+
 
   getStarType(index: number): 'full' | 'half' | 'empty' {
     const fullStars = Math.floor(this.note);
