@@ -20,6 +20,7 @@ export class CardArtisanComponent {
   @Input() website!: string;
   @Input() category!: string;
   @Input() top!: boolean;
+  
 
   getStarType(index: number): 'full' | 'half' | 'empty' {
     const fullStars = Math.floor(this.note);
