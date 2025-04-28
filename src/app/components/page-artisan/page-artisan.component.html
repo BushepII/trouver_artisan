@@ -1,16 +1,32 @@
 <h1 class="mb-10 text-3xl">Qui suis-je ?</h1>
 <div *ngIf="artisan" class="flex flex-col w-full justify-between gap-y-10 gap-x-10">
-    <section class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20">
+    <div class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20">
         <h2 class="p-4 text-xl">{{ artisan.name }}</h2>
         <div class="flex justify-evenly">
             <ng-container *ngFor="let star of [0,1,2,3,4]; let i = index">
-                <svg *ngIf="i < artisan.note" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-[2em] h-[2em] text-yellow-400">
-                    <path d="M12 17.27L18.18 21 16.54 13.97 22 9.24l-7.19-.62L12 2 9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
+
+                <!-- FULL star -->
+                <svg *ngIf="getStarType(i) === 'full'" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 text-[#0074c7]">
+                  <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
                 </svg>
-                <svg *ngIf="i >= artisan.note" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-[2em] h-[2em] text-gray-300">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.716 5.282a1 1 0 00.95.69h5.528c.969 0 1.371 1.24.588 1.81l-4.473 3.252a1 1 0 00-.364 1.118l1.716 5.282c.3.921-.755 1.688-1.538 1.118l-4.473-3.252a1 1 0 00-1.175 0l-4.473 3.252c-.783.57-1.838-.197-1.538-1.118l1.716-5.282a1 1 0 00-.364-1.118L2.49 10.709c-.783-.57-.38-1.81.588-1.81h5.528a1 1 0 00.95-.69l1.716-5.282z"/>
+            
+                <!-- HALF star -->
+                <svg *ngIf="getStarType(i) === 'half'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-[#0074c7]">
+                  <defs>
+                    <linearGradient class="halfGrad">
+                      <stop offset="50%" stop-color="currentColor" />
+                      <stop offset="50%" stop-color="transparent" />
+                    </linearGradient>
+                  </defs>
+                  <path fill="url(.halfGrad)" stroke="currentColor" stroke-width="1.5" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
                 </svg>
-            </ng-container>
+            
+                <!-- EMPTY star -->
+                <svg *ngIf="getStarType(i) === 'empty'" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-6 h-6 text-gray-300">
+                  <path stroke-width="2" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
+                </svg>
+            
+              </ng-container>
         </div>
         <p class="text-lg py-4">{{ artisan.specialty }}</p>
 
@@ -20,15 +36,15 @@
         </div>
 
         <a *ngIf="artisan.website" [href]="artisan.website" target="_blank">{{ artisan.website }}</a>
-    </section>
+    </div>
 </div>
 
 <hr class="border-t-8 border-[#cd2c2e] w-10 mt-8 mx-8">
 <section>
     <h2 class="text-xl mx-8 mb-8 mt-4">À propos</h2>
-    <section *ngIf="artisan" class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20">
+    <div *ngIf="artisan" class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20">
         <p>{{ artisan.about }}</p>
-    </section>
+    </div>
 </section>
 
 <hr class="border-t-8 border-[#82b864] w-10 mt-8 mx-8">
@@ -44,7 +60,7 @@
 
         <button type="submit" class="bg-[#0074c7] text-white rounded p-2 hover:opacity-50 mx-auto w-40 hover:cursor-pointer">
             Envoyer
-          </button>
+        </button>
     </form>
 </section>
 

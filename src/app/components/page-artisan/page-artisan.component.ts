@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtisanService, Artisan } from '../../services/artisans.service';
 import { CommonModule } from '@angular/common';
@@ -9,7 +9,8 @@ import emailjs from '@emailjs/browser'
   selector: 'app-page-artisan',
   imports: [CommonModule, FormsModule],
   templateUrl: './page-artisan.component.html',
-  styleUrl: './page-artisan.component.scss'
+  styleUrl: './page-artisan.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class PageArtisanComponent {
   private route = inject(ActivatedRoute);
@@ -60,5 +61,22 @@ export class PageArtisanComponent {
         console.error('FAILED...', error);
         alert('Erreur, veuillez réessayer.');
       });
+  }
+
+  getStarType(index: number): 'full' | 'half' | 'empty' {
+    if (!this.artisan) {
+      return 'empty';
+    }
+    
+    const fullStars = Math.floor(this.artisan.note);
+    const decimal = this.artisan.note - fullStars;
+
+    if (index < fullStars) {
+      return 'full';
+    }
+    if (index === fullStars && decimal > 0.25) {
+      return 'half';
+    }
+    return 'empty';
   }
 }
