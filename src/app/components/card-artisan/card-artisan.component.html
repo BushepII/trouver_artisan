@@ -1,4 +1,4 @@
-<a [routerLink]="['/artisan', id]" routerLinkActive="routerLink-active" class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20 hover:cursor-pointer h-full">
+<a [attr.href]="'/artisan/'+id" class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20 hover:cursor-pointer h-full">
     <section class="space-y-6">
         <h3 class="py-4 text-xl">{{ name }}</h3>
         <div class="flex justify-start">
@@ -12,12 +12,12 @@
             <!-- HALF star -->
             <svg *ngIf="getStarType(i) === 'half'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-[#0074c7]">
               <defs>
-                <linearGradient id="halfGrad">
+                <linearGradient class="halfGrad">
                   <stop offset="50%" stop-color="currentColor" />
                   <stop offset="50%" stop-color="transparent" />
                 </linearGradient>
               </defs>
-              <path fill="url(#halfGrad)" stroke="currentColor" stroke-width="1.5" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
+              <path fill="url(.halfGrad)" stroke="currentColor" stroke-width="1.5" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
             </svg>
         
             <!-- EMPTY star -->

@@ -2,12 +2,14 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { ViewEncapsulation } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class HeaderComponent {
   @Output() sectionToggled = new EventEmitter<{section: 'menu' | 'search', open: boolean}>();

@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ArtisanService, Artisan } from '../../services/artisans.service';
 import { CardArtisanComponent } from '../card-artisan/card-artisan.component';
@@ -8,7 +8,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-search',
   imports: [CardArtisanComponent, CommonModule],
   templateUrl: './search.component.html',
-  styleUrl: './search.component.scss'
+  styleUrl: './search.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class SearchComponent {
   private route = inject(ActivatedRoute);

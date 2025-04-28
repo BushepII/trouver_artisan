@@ -44,7 +44,7 @@
         </div>
 
         <!-- Mobile Menu (Hidden by Default) -->
-        <div class="lg:hidden" id="mobile-menu" *ngIf="isMenuOpen">
+        <div class="lg:hidden" id="mobile-menu" [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}">
             <div class="space-y-5 px-5 pt-2 pb-3">
             <a (click)="navigateToCategory('Bâtiment')" class="block text-2xl hover:cursor-pointer">Bâtiment</a>
             <a (click)="navigateToCategory('Services')" class="block text-2xl hover:cursor-pointer">Services</a>

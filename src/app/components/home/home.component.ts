@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewEncapsulation } from '@angular/core';
 import { InstructionService, Instruction } from '../../services/instructions.service';
 import { CommonModule } from '@angular/common';
 import { CardArtisanComponent } from '../card-artisan/card-artisan.component';
@@ -8,7 +8,8 @@ import { ArtisanService, Artisan } from '../../services/artisans.service';
   selector: 'app-home',
   imports: [CommonModule, CardArtisanComponent],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class HomeComponent {
   private instructionService = inject(InstructionService);
