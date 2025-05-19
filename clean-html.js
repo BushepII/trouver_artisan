@@ -2,7 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const cheerio = require('cheerio');
 
-const outputDir = path.join(__dirname, 'dist', 'your-app-name');
+const outputDir = path.join(__dirname, 'dist', 'trouver_artisan');
+
 
 function cleanHTMLFile(filePath) {
   const html = fs.readFileSync(filePath, 'utf-8');

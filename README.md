@@ -6,7 +6,7 @@ This project was generated using [Angular CLI](https://github.com/angular/angula
 ## Dependencies
 
 ```
-npm install tailwindcss @tailwindcss/postcss postcss --force
+npm install tailwindcss @tailwindcss/cli
 npm install normalize-text --save
 npm install @emailjs/browser
 npm install --save-dev cheerio
