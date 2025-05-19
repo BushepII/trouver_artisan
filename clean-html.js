@@ -29,15 +29,21 @@ function cleanHTMLFile(filePath) {
   $('style').each((_, el) => {
     let css = $(el).html();
 
-    // Remove all @layer blocks (greedy multiline-safe)
+    // Remove @layer, @property, @supports blocks
     css = css.replace(/@layer\s+[^{]+\{[^]*?\}/gs, '');
     css = css.replace(/@property\s+[^{]+\{[^]*?\}/gs, '');
+    css = css.replace(/@supports\s+[^{]+\{[^]*?\}/gs, '');
 
-    // Remove any leading orphaned closing braces after @layer/@property removal
+    // Remove leading orphan brace
     css = css.replace(/^}\s*/, '');
 
-    // Remove orphan double closing braces before class selectors
-    css = css.replace(/}}(?=\.\w)/g, '');
+    // Fix orphaned braces before class selectors
+    css = css.replace(/}\s*}(?=\.\w)/g, '');
+    css = css.replace(/}\s*(?=\.\w)/g, '');
+
+    // Fix invalid calc expressions (e.g., calc(infinity * 1px))
+    css = css.replace(/calc\((infinity|NaN|undefined)[^)]*\)/gi, '');
+    css = css.replace(/[\w-]+:\s*(infinity|NaN|undefined)[^;{]*[;}]/gi, '');
 
     $(el).html(css);
   });
