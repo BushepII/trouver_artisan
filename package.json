@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
-    "build:css": "npx tailwindcss -i ./src/styles.css -o ./dist/styles.css --minify",
+    "build:css": "npx tailwindcss -i ./src/styles.scss -o ./dist/trouver_artisan/styles.css --watch",
     "clean:html": "node clean-html.js",
     "build:prod": "npm run build && npm run build:css && npm run clean:html",
     "watch": "ng build --watch --configuration development",
@@ -24,6 +24,7 @@
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.9",
     "@emailjs/browser": "^4.4.1",
+    "@tailwindcss/cli": "^4.1.7",
     "express": "^4.18.2",
     "normalize-text": "^2.6.0",
     "rxjs": "~7.8.0",
@@ -47,7 +48,7 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
     "postcss": "^8.5.3",
-    "tailwindcss": "^4.1.4",
+    "tailwindcss": "^4.1.7",
     "typescript": "~5.7.2"
   }
 }
