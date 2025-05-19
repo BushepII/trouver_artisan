@@ -28,7 +28,9 @@ function cleanHTMLFile(filePath) {
   // Optional: Minify inline style tag content if needed
   $('style').each((_, el) => {
     let css = $(el).html();
-    css = css.replace(/@layer\s+[^{]+\{[^{}]*\}/gs, ''); // Remove @layer blocks
+    // Remove all @layer blocks (greedy multiline-safe)
+    css = css.replace(/@layer\s+[^{]+\{[^]*?\}/gs, '');
+    css = css.replace(/@property\s+[^{]+\{[^]*?\}/gs, '');
     $(el).html(css);
   });
 
