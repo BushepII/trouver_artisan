@@ -28,13 +28,17 @@ function cleanHTMLFile(filePath) {
   // Optional: Minify inline style tag content if needed
   $('style').each((_, el) => {
     let css = $(el).html();
-    
+
     // Remove all @layer blocks (greedy multiline-safe)
     css = css.replace(/@layer\s+[^{]+\{[^]*?\}/gs, '');
     css = css.replace(/@property\s+[^{]+\{[^]*?\}/gs, '');
 
     // Remove any leading orphaned closing braces after @layer/@property removal
     css = css.replace(/^}\s*/, '');
+
+    // Remove orphan double closing braces before class selectors
+    css = css.replace(/}}(?=\.\w)/g, '');
+
     $(el).html(css);
   });
 
