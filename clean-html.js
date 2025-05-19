@@ -4,6 +4,7 @@ const cheerio = require('cheerio');
 
 const outputDir = path.join(__dirname, 'dist', 'trouver_artisan');
 
+
 function cleanHTMLFile(filePath) {
   const html = fs.readFileSync(filePath, 'utf-8');
   const $ = cheerio.load(html, { decodeEntities: false });
