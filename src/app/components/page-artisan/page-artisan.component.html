@@ -2,36 +2,27 @@
 <div *ngIf="artisan" class="flex flex-col w-full justify-between gap-y-10 gap-x-10">
     <div class="flex flex-col justify-evenly shadow-[0_0_10px_rgba(0,0,0,0.15)] rounded-lg p-6 items-center px-20">
         <h2 class="p-4 text-xl">{{ artisan.name }}</h2>
-        <div class="flex justify-evenly">
-            <ng-container *ngFor="let star of [0,1,2,3,4]; let i = index">
-
-                <!-- FULL star -->
-                <svg *ngIf="getStarType(i) === 'full'" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" class="w-6 h-6 text-[#0074c7]">
-                  <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
-                </svg>
-            
-                <!-- HALF star -->
-                <svg *ngIf="getStarType(i) === 'half'" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-6 h-6 text-[#0074c7]">
-                  <defs>
-                    <linearGradient class="halfGrad">
-                      <stop offset="50%" stop-color="currentColor" />
-                      <stop offset="50%" stop-color="transparent" />
+        <div class="flex">
+            <ng-container *ngFor="let star of [0, 1, 2, 3, 4]; let i = index">
+                <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    class="w-6 h-6">
+                    <defs>
+                    <linearGradient [attr.id]="'grad' + i" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#0074c7"/>
+                        <stop [attr.offset]="getFillPercentage(i) + '%'" stop-color="#0074c7"/>
+                        <stop [attr.offset]="getFillPercentage(i) + '%'" stop-color="lightgray"/>
+                        <stop offset="100%" stop-color="lightgray"/>
                     </linearGradient>
-                  </defs>
-                  <path fill="url(.halfGrad)" stroke="currentColor" stroke-width="1.5" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
+                    </defs>
+                    <path [attr.fill]="'url(#grad' + i + ')'" stroke="currentColor" stroke-width="0.5" d="M12 17.27L18.18 21L16.54 13.97L22 9.24 l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
                 </svg>
-            
-                <!-- EMPTY star -->
-                <svg *ngIf="getStarType(i) === 'empty'" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" viewBox="0 0 24 24" class="w-6 h-6 text-gray-300">
-                  <path stroke-width="2" d="M12 17.27L18.18 21L16.54 13.97L22 9.24l-7.19-.62L12 2L9.19 8.62 2 9.24 7.46 13.97 5.82 21z"/>
-                </svg>
-            
-              </ng-container>
+            </ng-container>
         </div>
         <p class="text-lg py-4">{{ artisan.specialty }}</p>
 
         <div class="flex items-center">
-            <img src="/assets/images/localisation.png" class="w-full max-w-8 h-8" alt="icone de localisation">
+            <img src="/assets/images/localisation.png" class="w-8 h-auto" alt="icone de localisation">
             <p class="text-lg py-4">{{ artisan.location }}</p>
         </div>
 

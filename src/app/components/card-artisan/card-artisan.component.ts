@@ -21,16 +21,10 @@ export class CardArtisanComponent {
   @Input() top!: boolean;
 
 
-  getStarType(index: number): 'full' | 'half' | 'empty' {
-    const fullStars = Math.floor(this.note);
-    const decimal = this.note - fullStars;
-
-    if (index < fullStars) {
-      return 'full';
-    }
-    if (index === fullStars && decimal > 0.25) {
-      return 'half';
-    }
-    return 'empty';
+  getFillPercentage(index: number): number {
+    const full = Math.floor(this.note);
+    if (index < full) return 100;
+    if (index > full) return 0;
+    return Math.round((this.note - full) * 100);
   }
 }
