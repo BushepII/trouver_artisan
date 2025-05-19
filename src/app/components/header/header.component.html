@@ -2,7 +2,7 @@
     <nav class="xl:max-w-3/5 xl:mx-auto shadow-md xl:shadow-none">
         <div class="flex justify-between items-center p-2">
             <!-- Logo -->
-            <a (click)="navigateHome()" class="mr-10 hover:cursor-pointer"><img src="/assets/images/Logo.png" alt="Logo trouve ton artisan de la région Auvergne-Rhône-Alpes" class="w-full max-w-md h-auto"></a>
+            <a (click)="navigateHome()" class="mr-10 hover:cursor-pointer max-w-lg"><img src="/assets/images/Logo.png" alt="Logo trouve ton artisan de la région Auvergne-Rhône-Alpes" class="w-full h-auto"></a>
 
             <!-- Desktop Menu -->
             <div class="flex items-center lg:flex-col lg:items-end">
@@ -36,7 +36,7 @@
             
                         Menu open: "block", Menu closed: "hidden"
                     -->
-                    <svg [ngClass]="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="size-15" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
+                    <svg *ngIf="isMenuOpen" class="size-15" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true" data-slot="icon">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
                     </svg>
                 </button>

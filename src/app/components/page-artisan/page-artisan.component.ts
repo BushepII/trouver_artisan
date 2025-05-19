@@ -63,20 +63,13 @@ export class PageArtisanComponent {
       });
   }
 
-  getStarType(index: number): 'full' | 'half' | 'empty' {
+  getFillPercentage(index: number): number {
     if (!this.artisan) {
-      return 'empty';
+      return 0;
     }
-    
-    const fullStars = Math.floor(this.artisan.note);
-    const decimal = this.artisan.note - fullStars;
-
-    if (index < fullStars) {
-      return 'full';
-    }
-    if (index === fullStars && decimal > 0.25) {
-      return 'half';
-    }
-    return 'empty';
+    const full = Math.floor(this.artisan.note);
+    if (index < full) return 100;
+    if (index > full) return 0;
+    return Math.round((this.artisan.note - full) * 100);
   }
 }
