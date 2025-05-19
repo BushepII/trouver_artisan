@@ -20,10 +20,15 @@ function cleanHTMLFile(filePath) {
     });
   });
 
+  // Remove type="text/javascript" from script tags
+    $('script[type="text/javascript"]').each((_, el) => {
+        $(el).removeAttr('type');
+    });
+
   // Optional: Minify inline style tag content if needed
   $('style').each((_, el) => {
     let css = $(el).html();
-    css = css.replace(/@layer\s+[^{]+\{[^}]*\}/g, ''); // Remove @layer blocks
+    css = css.replace(/@layer\s+[^{]+\{[^{}]*\}/gs, ''); // Remove @layer blocks
     $(el).html(css);
   });
 
